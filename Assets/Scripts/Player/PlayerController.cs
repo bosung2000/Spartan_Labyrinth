@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,8 +24,8 @@ public class PlayerController : MonoBehaviour
     private float camCurXRot;
     public float lookSenSitivity;
     private Vector2 mouseDelta;
-    
 
+    public Action Eat;
 
     Rigidbody rd;
     private void Awake()
@@ -112,6 +113,14 @@ public class PlayerController : MonoBehaviour
     public void OnLock(InputAction.CallbackContext context)
     {
         mouseDelta = context.ReadValue<Vector2>();
+    }
+
+    public void OnEat(InputAction.CallbackContext context)
+    {
+        if (context.phase ==InputActionPhase.Started)
+        {
+            Eat?.Invoke();
+        }
     }
 
     bool IsGround()

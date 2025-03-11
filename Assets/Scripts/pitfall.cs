@@ -27,6 +27,7 @@ public class pitfall : MonoBehaviour
     {
         if (other.TryGetComponent(out IDamageable damageable))
         {
+            damageable.TakePhysicalDamage(damage);
             things.Add(damageable);
         }
     }

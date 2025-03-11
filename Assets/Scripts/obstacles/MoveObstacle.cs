@@ -10,6 +10,7 @@ public enum MovementAxis
 
 public class MoveObstacle : MonoBehaviour
 {
+
     [SerializeField] private MovementAxis movementAxis = MovementAxis.X_Axis;  // 이동 축 선택
     [SerializeField] private float xmoveSpeed = 0.8f;     // 이동 속도
     [SerializeField] private float xmoveDistance = 5.0f;  // 좌우 이동 거리

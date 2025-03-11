@@ -5,9 +5,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    private Transform platform; // 현재 서 있는 발판
-    private Vector3 platformPreviousPosition;
-    private bool isOnPlatform = false;
+    //private Transform platform; // 현재 서 있는 발판
+    //private Vector3 platformPreviousPosition;
+    //private bool isOnPlatform = false;
 
     //컨트롤 움직임 
     [Header("Movement")]
@@ -38,11 +38,11 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         // 발판 위에 있을 때 발판의 이동에 따라 플레이어도 이동
-        if (isOnPlatform && platform != null)
-        {
-            Vector3 platformDelta = platform.position - platformPreviousPosition;
-            transform.position += platformDelta;
-        }
+        //if (isOnPlatform && platform != null)
+        //{
+        //    Vector3 platformDelta = platform.position - platformPreviousPosition;
+        //    transform.position += platformDelta;
+        //}
 
         Move();
     }
@@ -50,10 +50,10 @@ public class PlayerController : MonoBehaviour
     private void LateUpdate()
     {
         // 발판 위치 업데이트
-        if (isOnPlatform && platform != null)
-        {
-            platformPreviousPosition = platform.position;
-        }
+        //if (isOnPlatform && platform != null)
+        //{
+        //    platformPreviousPosition = platform.position;
+        //}
         CamerLook();
     }
     //값을 받아왔으니까 get 
@@ -139,22 +139,22 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // 발판인지 확인 (발판에 "Platform" 태그를 추가해야 함)
-        if (collision.gameObject.CompareTag("Platform"))
-        {
-            platform = collision.transform;
-            platformPreviousPosition = platform.position;
-            isOnPlatform = true;
-        }
+        //if (collision.gameObject.CompareTag("Platform"))
+        //{
+        //    platform = collision.transform;
+        //    platformPreviousPosition = platform.position;
+        //    isOnPlatform = true;
+        //}
     }
 
     private void OnCollisionExit(Collision collision)
     {
         // 발판에서 벗어났는지 확인
-        if (collision.gameObject.CompareTag("Platform"))
-        {
-            isOnPlatform = false;
-            platform = null;
-        }
+        //if (collision.gameObject.CompareTag("Platform"))
+        //{
+        //    isOnPlatform = false;
+        //    platform = null;
+        //}
     }
 
 }
